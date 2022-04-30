@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lc.ibps.project.enterprisesurvey.persistence.entity.EnterprisesurveyPo">
+	<!--<cache type="net.oschina.j2cache.mybatis.J2CacheAdapter"/>-->
+	<resultMap id="EnterprisesurveyPo" type="com.lc.ibps.project.enterprisesurvey.persistence.entity.EnterprisesurveyPo">
+		<id property="id" column="ID_" jdbcType="VARCHAR"/>
+		<result property="ip" column="IP_" jdbcType="VARCHAR"/>
+		<result property="createBy" column="CREATE_BY_" jdbcType="VARCHAR"/>
+		<result property="createTime" column="CREATE_TIME_" jdbcType="TIMESTAMP"/>
+		<result property="fileType" column="FILETYPE_" jdbcType="VARCHAR"/>
+		<result property="dependency" column="DEPENDENCY_" jdbcType="VARCHAR"/>
+		<result property="headDp" column="HEADDP_" jdbcType="VARCHAR"/>
+		<result property="liaison" column="LIAISON_" jdbcType="VARCHAR"/>
+		<result property="cooperateDp" column="COOPERATEDP_" jdbcType="VARCHAR"/>
+		<result property="businessRoom" column="BUSINESSROOM_" jdbcType="VARCHAR"/>
+		<result property="phone" column="PHONE_" jdbcType="VARCHAR"/>
+		<result property="fillDate" column="FILLDATE_" jdbcType="TIMESTAMP"/>
+		<result property="processNum" column="PROCESSNUM_" jdbcType="NUMERIC"/>
+		<result property="dealDayNum" column="DEALDAYNUM_" jdbcType="NUMERIC"/>
+		<result property="promiseDayNum" column="PROMISEDAYNUM_" jdbcType="NUMERIC"/>
+		<result property="cost" column="COST_" jdbcType="NUMERIC"/>
+		<result property="fileNum" column="FILENUM_" jdbcType="NUMERIC"/>
+		<result property="netOperateNum" column="NETOPERATENUM_" jdbcType="NUMERIC"/>
+		<result property="netOperateDp" column="NETOPERATEDP_" jdbcType="VARCHAR"/>
+		<result property="dpAttachmt" column="DPATTACHMT_" jdbcType="VARCHAR"/>
+		<result property="isDataShare" column="ISDATASHARE_" jdbcType="VARCHAR"/>
+		<result property="shareAttachmt" column="SHAREATTACHMT_" jdbcType="VARCHAR"/>
+		<result property="isSynthetical" column="ISSYNTHETICAL_" jdbcType="VARCHAR"/>
+		<result property="syncAttachmt" column="SYNCATTACHMT_" jdbcType="VARCHAR"/>
+		<result property="electronicNum" column="ELECTRONICNUM_" jdbcType="NUMERIC"/>
+		<result property="electronicPrecent" column="ELECTRONICPRECENT_" jdbcType="NUMERIC"/>
+		<result property="elcAttachmt" column="ELCATTACHMT_" jdbcType="VARCHAR"/>
+		<result property="isOpenSlim" column="ISOPENSLIM_" jdbcType="VARCHAR"/>
+		<result property="slimAttachmt" column="SLIMATTACHMT_" jdbcType="VARCHAR"/>
+		<result property="fillState" column="FILLSTATE_" jdbcType="VARCHAR"/>
+		<result property="retain1" column="RETAIN1_" jdbcType="VARCHAR"/>
+		<result property="retain" column="RETAIN2_" jdbcType="VARCHAR"/>
+		<result property="isOpenGuide" column="ISOPENGUIDE_" jdbcType="VARCHAR"/>
+		<result property="isHallOfficial" column="ISHALLOFFICIAL_" jdbcType="VARCHAR"/>
+		<result property="isOpenSpeed" column="ISOPENSPEED_" jdbcType="VARCHAR"/>
+		<result property="isBankOrder" column="ISBANKORDER_" jdbcType="VARCHAR"/>
+		<result property="isEleLicense" column="ISELELICENSE_" jdbcType="VARCHAR"/>
+		<result property="isExpressSer" column="ISEXPRESSSER_" jdbcType="VARCHAR"/>
+		<result property="isEleOfficial" column="ISELEOFFICIAL_" jdbcType="VARCHAR"/>
+		<result property="isOneAll" column="ISONEALL_" jdbcType="VARCHAR"/>
+		<result property="isOnline" column="ISONLINE_" jdbcType="VARCHAR"/>
+		<result property="quotaId" column="QUOTAID" jdbcType="VARCHAR"/>
+		<result property="orgId" column="ORGID_" jdbcType="VARCHAR"/>
+		<result property="year" column="YEAR_" jdbcType="VARCHAR"/>
+		<result property="dataPush" column="DATAPUSH_" jdbcType="VARCHAR"/>
+		<result property="oneCheck" column="ONECHECK_" jdbcType="VARCHAR"/>
+		<result property="finishCount" column="FINISHCOUNT_" jdbcType="VARCHAR"/>
+		<result property="qyPercent" column="QYPERCENT_" jdbcType="VARCHAR"/>
+		<result property="islimit" column="ISLIMIT_" jdbcType="VARCHAR"/>
+		<result property="qyOpenAttachment" column="QYOPENATTACHMENT" jdbcType="VARCHAR"/>
+		<result property="hallGzAttachment" column="HALLGZATTACHMENT_" jdbcType="VARCHAR"/>
+		<result property="openProAttachment" column="OPENPROATTACHMENT_" jdbcType="VARCHAR"/>
+		<result property="bankOrderAtt" column="BANKORDERATT_" jdbcType="VARCHAR"/>
+		<result property="eleLicenseAtt" column="ELELICENSEATT_" jdbcType="VARCHAR"/>
+		<result property="expressSerAtt" column="EXPRESSSERATT_" jdbcType="VARCHAR"/>
+		<result property="eleOfficialAtt" column="ELEOFFICIALATT_" jdbcType="VARCHAR"/>
+		<result property="oneAllAtt" column="ONEALLATT_" jdbcType="VARCHAR"/>
+		<result property="dataPushAtt" column="DATAPUSHATT_" jdbcType="VARCHAR"/>
+		<result property="oneCheckAtt" column="ONECHECKATT_" jdbcType="VARCHAR"/>
+		<result property="limitAtt" column="LIMITATT_" jdbcType="VARCHAR"/>
+		<result property="isOnlineAtt" column="ISONLINEATT_" jdbcType="VARCHAR"/>
+		<result property="openGuideRemark" column="OPENGUIDEREMARK_" jdbcType="VARCHAR"/>
+		<result property="hallOfficalRemark" column="HALLOFFICALREMARK_" jdbcType="VARCHAR"/>
+		<result property="openSpeedRemark" column="OPENSPEEDREMARK_" jdbcType="VARCHAR"/>
+		<result property="bankOrderRemark" column="BANKORDERREMARK_" jdbcType="VARCHAR"/>
+		<result property="eleLicenseRemark" column="ELELICENSEREMARK_" jdbcType="VARCHAR"/>
+		<result property="expressSerRemark" column="EXPRESSSERREMARK_" jdbcType="VARCHAR"/>
+		<result property="eleOfficalRemark" column="ELEOFFICALREMARK_" jdbcType="VARCHAR"/>
+		<result property="oneAllRemark" column="ONEALLREMARK_" jdbcType="VARCHAR"/>
+		<result property="onlineRemark" column="ONLINEREMARK_" jdbcType="VARCHAR"/>
+		<result property="dataPushRemark" column="DATAPUSHREMARK_" jdbcType="VARCHAR"/>
+		<result property="oneCheckRemark" column="ONECHECKREMARK_" jdbcType="VARCHAR"/>
+		<result property="isLimitRemark" column="ISLIMITREMARK_" jdbcType="VARCHAR"/>
+		<result property="finishCountAtt" column="FINISHCOUNTATT_" jdbcType="VARCHAR"/>
+		<result property="finishCountRemark" column="FINISHCOUNTREMARK_" jdbcType="VARCHAR"/>
+		<result property="qyPercentRemark" column="QYPERCENTREMARK_" jdbcType="VARCHAR"/>
+		<result property="qyPercentAtt" column="QYPERCENTATT_" jdbcType="VARCHAR"/>
+		<result property="isOnlineOther" column="ISONLINEOTHER_" jdbcType="VARCHAR"/>
+		<result property="localOnlineOther" column="LOCALONLINEOTHER_" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<sql id="columns">
+		ID_,IP_,CREATE_BY_,CREATE_TIME_,FILETYPE_,DEPENDENCY_,HEADDP_,LIAISON_,COOPERATEDP_,BUSINESSROOM_,PHONE_,FILLDATE_,PROCESSNUM_,DEALDAYNUM_,PROMISEDAYNUM_,COST_,FILENUM_,NETOPERATENUM_,NETOPERATEDP_,DPATTACHMT_,ISDATASHARE_,SHAREATTACHMT_,ISSYNTHETICAL_,SYNCATTACHMT_,ELECTRONICNUM_,ELECTRONICPRECENT_,ELCATTACHMT_,ISOPENSLIM_,SLIMATTACHMT_,FILLSTATE_,RETAIN1_,RETAIN2_,ISOPENGUIDE_,ISHALLOFFICIAL_,ISOPENSPEED_,ISBANKORDER_,ISELELICENSE_,ISEXPRESSSER_,ISELEOFFICIAL_,ISONEALL_,ISONLINE_,QUOTAID,ORGID_,YEAR_,DATAPUSH_,ONECHECK_,FINISHCOUNT_,QYPERCENT_,ISLIMIT_,QYOPENATTACHMENT,HALLGZATTACHMENT_,OPENPROATTACHMENT_,BANKORDERATT_,ELELICENSEATT_,EXPRESSSERATT_,ELEOFFICIALATT_,ONEALLATT_,DATAPUSHATT_,ONECHECKATT_,LIMITATT_,ISONLINEATT_,OPENGUIDEREMARK_,HALLOFFICALREMARK_,OPENSPEEDREMARK_,BANKORDERREMARK_,ELELICENSEREMARK_,EXPRESSSERREMARK_,ELEOFFICALREMARK_,ONEALLREMARK_,ONLINEREMARK_,DATAPUSHREMARK_,ONECHECKREMARK_,ISLIMITREMARK_,FINISHCOUNTATT_,FINISHCOUNTREMARK_,QYPERCENTREMARK_,QYPERCENTATT_,ISONLINEOTHER_,LOCALONLINEOTHER_
+	</sql>
+	
+	<insert id="create" parameterType="com.lc.ibps.project.enterprisesurvey.persistence.entity.EnterprisesurveyPo">
+		INSERT INTO T_ENTERPRISESURVEY
+		(<include refid="columns"/>)
+		VALUES 
+		(#{id,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{fileType,jdbcType=VARCHAR}, #{dependency,jdbcType=VARCHAR}, #{headDp,jdbcType=VARCHAR}, #{liaison,jdbcType=VARCHAR}, #{cooperateDp,jdbcType=VARCHAR}, #{businessRoom,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{fillDate,jdbcType=TIMESTAMP}, #{processNum,jdbcType=NUMERIC}, #{dealDayNum,jdbcType=NUMERIC}, #{promiseDayNum,jdbcType=NUMERIC}, #{cost,jdbcType=NUMERIC}, #{fileNum,jdbcType=NUMERIC}, #{netOperateNum,jdbcType=NUMERIC}, #{netOperateDp,jdbcType=VARCHAR}, #{dpAttachmt,jdbcType=VARCHAR}, #{isDataShare,jdbcType=VARCHAR}, #{shareAttachmt,jdbcType=VARCHAR}, #{isSynthetical,jdbcType=VARCHAR}, #{syncAttachmt,jdbcType=VARCHAR}, #{electronicNum,jdbcType=NUMERIC}, #{electronicPrecent,jdbcType=NUMERIC}, #{elcAttachmt,jdbcType=VARCHAR}, #{isOpenSlim,jdbcType=VARCHAR}, #{slimAttachmt,jdbcType=VARCHAR}, #{fillState,jdbcType=VARCHAR}, #{retain1,jdbcType=VARCHAR}, #{retain,jdbcType=VARCHAR}, #{isOpenGuide,jdbcType=VARCHAR}, #{isHallOfficial,jdbcType=VARCHAR}, #{isOpenSpeed,jdbcType=VARCHAR}, #{isBankOrder,jdbcType=VARCHAR}, #{isEleLicense,jdbcType=VARCHAR}, #{isExpressSer,jdbcType=VARCHAR}, #{isEleOfficial,jdbcType=VARCHAR}, #{isOneAll,jdbcType=VARCHAR}, #{isOnline,jdbcType=VARCHAR}, #{quotaId,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, #{dataPush,jdbcType=VARCHAR}, #{oneCheck,jdbcType=VARCHAR}, #{finishCount,jdbcType=VARCHAR}, #{qyPercent,jdbcType=VARCHAR}, #{islimit,jdbcType=VARCHAR}, #{qyOpenAttachment,jdbcType=VARCHAR}, #{hallGzAttachment,jdbcType=VARCHAR}, #{openProAttachment,jdbcType=VARCHAR}, #{bankOrderAtt,jdbcType=VARCHAR}, #{eleLicenseAtt,jdbcType=VARCHAR}, #{expressSerAtt,jdbcType=VARCHAR}, #{eleOfficialAtt,jdbcType=VARCHAR}, #{oneAllAtt,jdbcType=VARCHAR}, #{dataPushAtt,jdbcType=VARCHAR}, #{oneCheckAtt,jdbcType=VARCHAR}, #{limitAtt,jdbcType=VARCHAR}, #{isOnlineAtt,jdbcType=VARCHAR}, #{openGuideRemark,jdbcType=VARCHAR}, #{hallOfficalRemark,jdbcType=VARCHAR}, #{openSpeedRemark,jdbcType=VARCHAR}, #{bankOrderRemark,jdbcType=VARCHAR}, #{eleLicenseRemark,jdbcType=VARCHAR}, #{expressSerRemark,jdbcType=VARCHAR}, #{eleOfficalRemark,jdbcType=VARCHAR}, #{oneAllRemark,jdbcType=VARCHAR}, #{onlineRemark,jdbcType=VARCHAR}, #{dataPushRemark,jdbcType=VARCHAR}, #{oneCheckRemark,jdbcType=VARCHAR}, #{isLimitRemark,jdbcType=VARCHAR}, #{finishCountAtt,jdbcType=VARCHAR}, #{finishCountRemark,jdbcType=VARCHAR}, #{qyPercentRemark,jdbcType=VARCHAR}, #{qyPercentAtt,jdbcType=VARCHAR}, #{isOnlineOther,jdbcType=VARCHAR}, #{localOnlineOther,jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="get" parameterType="java.lang.String" resultMap="EnterprisesurveyPo">
+		SELECT <include refid="columns"/> FROM T_ENTERPRISESURVEY 
+		WHERE 
+		ID_=#{id}
+	</select>
+	
+	
+	<sql id="querySql" >
+		SELECT <include refid="columns"/> FROM T_ENTERPRISESURVEY
+		<where>
+			<if test="@o.Ognl@isNotEmpty(whereSql)">
+				${whereSql}
+			</if>
+		</where>
+		<if test="@o.Ognl@isNotEmpty(orderBySql)">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="@o.Ognl@isEmpty(orderBySql)">
+			ORDER BY ID_ DESC
+		</if>
+	</sql>
+	
+	<select id="query" parameterType="java.util.Map" resultMap="EnterprisesurveyPo">
+		<include refid="querySql"/>
+	</select>
+	
+	<select id="queryIds" parameterType="java.util.Map" resultMap="EnterprisesurveyPo">
+		SELECT ID_ FROM (<include refid="querySql"/>) T
+	</select>
+	
+	<select id="findByIds" resultMap="EnterprisesurveyPo">
+		SELECT <include refid="columns"/> FROM T_ENTERPRISESURVEY
+			WHERE ID_ in 
+			<foreach item="id" index="index" collection="ids" open="(" separator="," close=")">  
+				#{id}  
+			</foreach>  		
+			ORDER BY ID_ DESC			
+	</select>	
+	
+	<update id="update" parameterType="com.lc.ibps.project.enterprisesurvey.persistence.entity.EnterprisesurveyPo">
+		UPDATE T_ENTERPRISESURVEY SET
+		IP_=#{ip,jdbcType=VARCHAR},
+		FILETYPE_=#{fileType,jdbcType=VARCHAR},
+		DEPENDENCY_=#{dependency,jdbcType=VARCHAR},
+		HEADDP_=#{headDp,jdbcType=VARCHAR},
+		LIAISON_=#{liaison,jdbcType=VARCHAR},
+		COOPERATEDP_=#{cooperateDp,jdbcType=VARCHAR},
+		BUSINESSROOM_=#{businessRoom,jdbcType=VARCHAR},
+		PHONE_=#{phone,jdbcType=VARCHAR},
+		FILLDATE_=#{fillDate,jdbcType=TIMESTAMP},
+		PROCESSNUM_=#{processNum,jdbcType=NUMERIC},
+		DEALDAYNUM_=#{dealDayNum,jdbcType=NUMERIC},
+		PROMISEDAYNUM_=#{promiseDayNum,jdbcType=NUMERIC},
+		COST_=#{cost,jdbcType=NUMERIC},
+		FILENUM_=#{fileNum,jdbcType=NUMERIC},
+		NETOPERATENUM_=#{netOperateNum,jdbcType=NUMERIC},
+		NETOPERATEDP_=#{netOperateDp,jdbcType=VARCHAR},
+		DPATTACHMT_=#{dpAttachmt,jdbcType=VARCHAR},
+		ISDATASHARE_=#{isDataShare,jdbcType=VARCHAR},
+		SHAREATTACHMT_=#{shareAttachmt,jdbcType=VARCHAR},
+		ISSYNTHETICAL_=#{isSynthetical,jdbcType=VARCHAR},
+		SYNCATTACHMT_=#{syncAttachmt,jdbcType=VARCHAR},
+		ELECTRONICNUM_=#{electronicNum,jdbcType=NUMERIC},
+		ELECTRONICPRECENT_=#{electronicPrecent,jdbcType=NUMERIC},
+		ELCATTACHMT_=#{elcAttachmt,jdbcType=VARCHAR},
+		ISOPENSLIM_=#{isOpenSlim,jdbcType=VARCHAR},
+		SLIMATTACHMT_=#{slimAttachmt,jdbcType=VARCHAR},
+		FILLSTATE_=#{fillState,jdbcType=VARCHAR},
+		RETAIN1_=#{retain1,jdbcType=VARCHAR},
+		RETAIN2_=#{retain,jdbcType=VARCHAR},
+		ISOPENGUIDE_=#{isOpenGuide,jdbcType=VARCHAR},
+		ISHALLOFFICIAL_=#{isHallOfficial,jdbcType=VARCHAR},
+		ISOPENSPEED_=#{isOpenSpeed,jdbcType=VARCHAR},
+		ISBANKORDER_=#{isBankOrder,jdbcType=VARCHAR},
+		ISELELICENSE_=#{isEleLicense,jdbcType=VARCHAR},
+		ISEXPRESSSER_=#{isExpressSer,jdbcType=VARCHAR},
+		ISELEOFFICIAL_=#{isEleOfficial,jdbcType=VARCHAR},
+		ISONEALL_=#{isOneAll,jdbcType=VARCHAR},
+		ISONLINE_=#{isOnline,jdbcType=VARCHAR},
+		QUOTAID=#{quotaId,jdbcType=VARCHAR},
+		ORGID_=#{orgId,jdbcType=VARCHAR},
+		YEAR_=#{year,jdbcType=VARCHAR},
+		DATAPUSH_=#{dataPush,jdbcType=VARCHAR},
+		ONECHECK_=#{oneCheck,jdbcType=VARCHAR},
+		FINISHCOUNT_=#{finishCount,jdbcType=VARCHAR},
+		QYPERCENT_=#{qyPercent,jdbcType=VARCHAR},
+		ISLIMIT_=#{islimit,jdbcType=VARCHAR},
+		QYOPENATTACHMENT=#{qyOpenAttachment,jdbcType=VARCHAR},
+		HALLGZATTACHMENT_=#{hallGzAttachment,jdbcType=VARCHAR},
+		OPENPROATTACHMENT_=#{openProAttachment,jdbcType=VARCHAR},
+		BANKORDERATT_=#{bankOrderAtt,jdbcType=VARCHAR},
+		ELELICENSEATT_=#{eleLicenseAtt,jdbcType=VARCHAR},
+		EXPRESSSERATT_=#{expressSerAtt,jdbcType=VARCHAR},
+		ELEOFFICIALATT_=#{eleOfficialAtt,jdbcType=VARCHAR},
+		ONEALLATT_=#{oneAllAtt,jdbcType=VARCHAR},
+		DATAPUSHATT_=#{dataPushAtt,jdbcType=VARCHAR},
+		ONECHECKATT_=#{oneCheckAtt,jdbcType=VARCHAR},
+		LIMITATT_=#{limitAtt,jdbcType=VARCHAR},
+		ISONLINEATT_=#{isOnlineAtt,jdbcType=VARCHAR},
+		OPENGUIDEREMARK_=#{openGuideRemark,jdbcType=VARCHAR},
+		HALLOFFICALREMARK_=#{hallOfficalRemark,jdbcType=VARCHAR},
+		OPENSPEEDREMARK_=#{openSpeedRemark,jdbcType=VARCHAR},
+		BANKORDERREMARK_=#{bankOrderRemark,jdbcType=VARCHAR},
+		ELELICENSEREMARK_=#{eleLicenseRemark,jdbcType=VARCHAR},
+		EXPRESSSERREMARK_=#{expressSerRemark,jdbcType=VARCHAR},
+		ELEOFFICALREMARK_=#{eleOfficalRemark,jdbcType=VARCHAR},
+		ONEALLREMARK_=#{oneAllRemark,jdbcType=VARCHAR},
+		ONLINEREMARK_=#{onlineRemark,jdbcType=VARCHAR},
+		DATAPUSHREMARK_=#{dataPushRemark,jdbcType=VARCHAR},
+		ONECHECKREMARK_=#{oneCheckRemark,jdbcType=VARCHAR},
+		ISLIMITREMARK_=#{isLimitRemark,jdbcType=VARCHAR},
+		FINISHCOUNTATT_=#{finishCountAtt,jdbcType=VARCHAR},
+		FINISHCOUNTREMARK_=#{finishCountRemark,jdbcType=VARCHAR},
+		QYPERCENTREMARK_=#{qyPercentRemark,jdbcType=VARCHAR},
+		QYPERCENTATT_=#{qyPercentAtt,jdbcType=VARCHAR},
+		ISONLINEOTHER_=#{isOnlineOther,jdbcType=VARCHAR},
+		LOCALONLINEOTHER_=#{localOnlineOther,jdbcType=VARCHAR}
+		WHERE
+		ID_=#{id}
+	</update>
+	
+	<delete id="remove" parameterType="java.lang.String">
+		DELETE FROM T_ENTERPRISESURVEY 
+		WHERE
+		ID_=#{id}
+	</delete>
+	
+	
+</mapper>

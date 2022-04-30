@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    include: prod-base
+server:
+  port: 5399
+  

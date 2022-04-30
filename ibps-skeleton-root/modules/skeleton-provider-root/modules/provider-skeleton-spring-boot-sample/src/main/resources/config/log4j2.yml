@@ -1,0 +1,252 @@
+# 共有8个级别，按照从低到高为：ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < OFF
+Configuration:
+  status: warn
+  monitorInterval: 30
+  properties: # 定义全局变量
+    property: # 缺省配置（用于开发环境）。其他环境需要在VM参数中指定，如下：
+      # jvm参数：-Dlog.level.console=warn
+      - name: log.level.console
+        value: debug
+      - name: log.level.appender
+        value: debug
+      - name: loggers.level
+        value: debug
+      - name: loggers.include.location
+        value: true
+      - name: log.path
+        value: ./logs
+      - name: project.name
+        value: ibps-skeleton-spring-boot-provider
+      - name: log.console.pattern
+        value: "%d{ISO8601} [%5.5X{threadid}] [${project.name}] [%X{appversion}] [thrid] [%X{operation}] [%X{traceid}] [%X{spanid}] [%X{serverip}] [%X{serverport}] [%X{clientip}] [%X{url}] [%X{method}] [%X{headers}] [%X{paramters}] [%X{uid}] [%5.5level] [%-30.30C{1.}] : %m%n"
+      - name: log.pattern
+        value: "%d{ISO8601} %-1X{threadid} ${project.name} %-1X{appversion} thrid %-1X{operation} %-1X{traceid} %-1X{spanid} %-1X{serverip} %-1X{serverport} %-1X{clientip} %-1X{url} %-1X{method} %-1X{headers} %-1X{paramters} %-1X{uid} %level %l : %m%n"
+  appenders:
+    # 启动日志-输出到控制台
+    Console:
+      - name: CONSOLE_LOG
+        target: SYSTEM_OUT
+        ThresholdFilter:
+          level: ${sys:log.level.console}
+          onMatch: ACCEPT
+          onMismatch: DENY
+        PatternLayout:
+          pattern: ${log.console.pattern}
+    #   启动日志-输出到文件
+    RollingRandomAccessFile:
+      - name: ROLLING_FILE
+        fileName: ${sys:log.path}/${project.name}.log
+        filePattern: "${sys:log.path}/history/$${date:yyyy-MM}/${project.name}-%d{yyyy-MM-dd}-%i.log.gz"
+        PatternLayout:
+          pattern: ${log.pattern}
+        Filters:
+          #        一定要先去除不接受的日志级别，然后获取需要接受的日志级别
+          ThresholdFilter:
+            - level: ${sys:loggers.level}
+              onMatch: ACCEPT
+              onMismatch: DENY
+        Policies:
+          TimeBasedTriggeringPolicy:  # 按天分类
+            modulate: true
+            interval: 1
+          SizeBasedTriggeringPolicy:
+            size: 100MB
+        DefaultRolloverStrategy:     # 文件最多100个
+          max: 30
+  Loggers:
+    AsyncRoot:
+      level: warn
+      includeLocation: ${sys:loggers.include.location}
+      AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+    AsyncLogger:
+      - name: org
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: info
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: org.eclipse
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: warn
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: org.quartz
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: warn
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: org.springframework
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: warn
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: io.swagger.models.parameters.AbstractSerializableParameter
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: error
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: org.activiti
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: warn
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: org.apache
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: warn
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: org.apache.ibatis
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: java.sql
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: error
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: java.sql.Statement
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: java.sql.PreparedStatement
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: springfox
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: error
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: freemarker
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: error
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE        
+      - name: pres.lnk.springframework
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: info
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: cn
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: error
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: com
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: error
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: com.lc
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: com.lc.ibps.common
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: com.lc.ibps.auth
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: com.lc.ibps.socket
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: com.lc.ibps.register
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: com.lc.ibps.org
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: com.lc.ibps.base.bo
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: com.lc.ibps.form
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: com.lc.ibps.components.codegen
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: com.lc.ibps.bpmn
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE
+      - name: com.lc.ibps.office
+        additivity: false
+        includeLocation: ${sys:loggers.include.location}
+        level: ${sys:loggers.level}
+        AppenderRef:
+        - ref: CONSOLE_LOG
+        - ref: ROLLING_FILE

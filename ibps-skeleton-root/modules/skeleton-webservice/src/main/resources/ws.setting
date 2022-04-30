@@ -1,0 +1,2 @@
+ws.base.url=http://127.0.0.1:18888/ws
+ws.api=/demo

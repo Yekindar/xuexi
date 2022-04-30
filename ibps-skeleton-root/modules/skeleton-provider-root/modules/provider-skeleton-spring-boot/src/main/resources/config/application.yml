@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: ibps-skeleton-spring-boot-provider
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+    include: common,app
+swagger:
+  title: 流辰IBPS3.0门户平台
+  description: 流辰IBPS3.0门户服务平台接口文档说明
+  string-extensions:
+  - name: apiPrefix
+    value: /ibps/skeleton/springboot/v3 
+com:
+  lc:
+    db:
+      mybatis:
+        enabled: false
+client:
+  gateway:
+    disable: true
+app:
+  ribbon-proxy: false
+authorization:
+  enable: false
+  httpclient:
+    enable: true
+  context:
+    host: 192.168.3.220
+    port: 5200
+  token:
+    host: 192.168.3.220
+    port: 5200
+  platform:
+    host: 192.168.3.220
+    port: 5300

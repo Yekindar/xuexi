@@ -1,0 +1,8 @@
+id:
+  # 工作ID (0~31)
+  workerId: ${ID_WORKER_ID:0}
+  # 数据中心ID (0~31)
+  datacenterId: ${ID_DATACENTER_ID:0}
+#是否显示版本信息
+showVer: ${SHOW_VER:true}  
+        

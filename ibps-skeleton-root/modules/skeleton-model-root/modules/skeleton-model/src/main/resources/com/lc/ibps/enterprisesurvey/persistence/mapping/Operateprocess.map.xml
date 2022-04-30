@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lc.ibps.project.enterprisesurvey.persistence.entity.OperateprocessPo">
+	<!--<cache type="net.oschina.j2cache.mybatis.J2CacheAdapter"/>-->
+	<resultMap id="OperateprocessPo" type="com.lc.ibps.project.enterprisesurvey.persistence.entity.OperateprocessPo">
+		<id property="id" column="ID_" jdbcType="VARCHAR"/>
+		<result property="parSurId" column="PARSURID_" jdbcType="VARCHAR"/>
+		<result property="ip" column="IP_" jdbcType="VARCHAR"/>
+		<result property="createBy" column="CREATE_BY_" jdbcType="VARCHAR"/>
+		<result property="createTime" column="CREATE_TIME_" jdbcType="TIMESTAMP"/>
+		<result property="serialNum" column="SERIALNUM_" jdbcType="NUMERIC"/>
+		<result property="processName" column="PROCESSNAME_" jdbcType="VARCHAR"/>
+		<result property="operateDp" column="OPERATEDP_" jdbcType="VARCHAR"/>
+		<result property="isHappen" column="ISHAPPEN_" jdbcType="VARCHAR"/>
+		<result property="processDayNum" column="PROCESSDAYNUM_" jdbcType="NUMERIC"/>
+		<result property="processPmeNum" column="PROCESSPMENUM_" jdbcType="NUMERIC"/>
+		<result property="processCost" column="PROCESSCOST_" jdbcType="NUMERIC"/>
+		<result property="processFileNum" column="PROCESSFILENUM_" jdbcType="NUMERIC"/>
+		<result property="isParallel" column="ISPARALLEL_" jdbcType="VARCHAR"/>
+		<result property="parallelProcess" column="PARALLELPROCESS_" jdbcType="VARCHAR"/>
+		<result property="isMeantime" column="ISMEANTIME_" jdbcType="VARCHAR"/>
+		<result property="meantimeProcess" column="MEANTIMEPROCESS_" jdbcType="VARCHAR"/>
+		<result property="isNetProcess" column="ISNETPROCESS_" jdbcType="VARCHAR"/>
+		<result property="netProcess" column="NETPROCESS_" jdbcType="VARCHAR"/>
+		<result property="proveAttachmet" column="PROVEATTACHMET_" jdbcType="VARCHAR"/>
+		<result property="prcessState" column="PRCESSSTATE_" jdbcType="VARCHAR"/>
+		<result property="retain1" column="RETAIN1_" jdbcType="VARCHAR"/>
+		<result property="retain2" column="RETAIN2_" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<sql id="columns">
+		ID_,PARSURID_,IP_,CREATE_BY_,CREATE_TIME_,SERIALNUM_,PROCESSNAME_,OPERATEDP_,ISHAPPEN_,PROCESSDAYNUM_,PROCESSPMENUM_,PROCESSCOST_,PROCESSFILENUM_,ISPARALLEL_,PARALLELPROCESS_,ISMEANTIME_,MEANTIMEPROCESS_,ISNETPROCESS_,NETPROCESS_,PROVEATTACHMET_,PRCESSSTATE_,RETAIN1_,RETAIN2_
+	</sql>
+	
+	<insert id="create" parameterType="com.lc.ibps.project.enterprisesurvey.persistence.entity.OperateprocessPo">
+		INSERT INTO T_OPERATEPROCESS
+		(<include refid="columns"/>)
+		VALUES 
+		(#{id,jdbcType=VARCHAR}, #{parSurId,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{serialNum,jdbcType=NUMERIC}, #{processName,jdbcType=VARCHAR}, #{operateDp,jdbcType=VARCHAR}, #{isHappen,jdbcType=VARCHAR}, #{processDayNum,jdbcType=NUMERIC}, #{processPmeNum,jdbcType=NUMERIC}, #{processCost,jdbcType=NUMERIC}, #{processFileNum,jdbcType=NUMERIC}, #{isParallel,jdbcType=VARCHAR}, #{parallelProcess,jdbcType=VARCHAR}, #{isMeantime,jdbcType=VARCHAR}, #{meantimeProcess,jdbcType=VARCHAR}, #{isNetProcess,jdbcType=VARCHAR}, #{netProcess,jdbcType=VARCHAR}, #{proveAttachmet,jdbcType=VARCHAR}, #{prcessState,jdbcType=VARCHAR}, #{retain1,jdbcType=VARCHAR}, #{retain2,jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="get" parameterType="java.lang.String" resultMap="OperateprocessPo">
+		SELECT <include refid="columns"/> FROM T_OPERATEPROCESS 
+		WHERE 
+		ID_=#{id}
+	</select>
+	
+	
+	<sql id="querySql" >
+		SELECT <include refid="columns"/> FROM T_OPERATEPROCESS
+		<where>
+			<if test="@o.Ognl@isNotEmpty(whereSql)">
+				${whereSql}
+			</if>
+		</where>
+		<if test="@o.Ognl@isNotEmpty(orderBySql)">
+			ORDER BY ${orderBySql}
+		</if>
+		<if test="@o.Ognl@isEmpty(orderBySql)">
+			ORDER BY ID_ DESC
+		</if>
+	</sql>
+	
+	<select id="query" parameterType="java.util.Map" resultMap="OperateprocessPo">
+		<include refid="querySql"/>
+	</select>
+	
+	<select id="queryIds" parameterType="java.util.Map" resultMap="OperateprocessPo">
+		SELECT ID_ FROM (<include refid="querySql"/>) T
+	</select>
+	
+	<select id="findByIds" resultMap="OperateprocessPo">
+		SELECT <include refid="columns"/> FROM T_OPERATEPROCESS
+			WHERE ID_ in 
+			<foreach item="id" index="index" collection="ids" open="(" separator="," close=")">  
+				#{id}  
+			</foreach>  		
+			ORDER BY ID_ DESC			
+	</select>	
+	
+	<update id="update" parameterType="com.lc.ibps.project.enterprisesurvey.persistence.entity.OperateprocessPo">
+		UPDATE T_OPERATEPROCESS SET
+		PARSURID_=#{parSurId,jdbcType=VARCHAR},
+		IP_=#{ip,jdbcType=VARCHAR},
+		SERIALNUM_=#{serialNum,jdbcType=NUMERIC},
+		PROCESSNAME_=#{processName,jdbcType=VARCHAR},
+		OPERATEDP_=#{operateDp,jdbcType=VARCHAR},
+		ISHAPPEN_=#{isHappen,jdbcType=VARCHAR},
+		PROCESSDAYNUM_=#{processDayNum,jdbcType=NUMERIC},
+		PROCESSPMENUM_=#{processPmeNum,jdbcType=NUMERIC},
+		PROCESSCOST_=#{processCost,jdbcType=NUMERIC},
+		PROCESSFILENUM_=#{processFileNum,jdbcType=NUMERIC},
+		ISPARALLEL_=#{isParallel,jdbcType=VARCHAR},
+		PARALLELPROCESS_=#{parallelProcess,jdbcType=VARCHAR},
+		ISMEANTIME_=#{isMeantime,jdbcType=VARCHAR},
+		MEANTIMEPROCESS_=#{meantimeProcess,jdbcType=VARCHAR},
+		ISNETPROCESS_=#{isNetProcess,jdbcType=VARCHAR},
+		NETPROCESS_=#{netProcess,jdbcType=VARCHAR},
+		PROVEATTACHMET_=#{proveAttachmet,jdbcType=VARCHAR},
+		PRCESSSTATE_=#{prcessState,jdbcType=VARCHAR},
+		RETAIN1_=#{retain1,jdbcType=VARCHAR},
+		RETAIN2_=#{retain2,jdbcType=VARCHAR}
+		WHERE
+		ID_=#{id}
+	</update>
+	
+	<delete id="remove" parameterType="java.lang.String">
+		DELETE FROM T_OPERATEPROCESS 
+		WHERE
+		ID_=#{id}
+	</delete>
+	
+	<delete id="deleteByMainId">
+	    DELETE FROM T_OPERATEPROCESS
+	    WHERE
+	    PARSURID_=#{mainId}
+	</delete>
+	
+	<delete id="deleteByIds">
+	    DELETE FROM T_OPERATEPROCESS
+	    WHERE
+	    ID_ IN 
+	    <foreach item="id" index="index" collection="ids" open="(" separator="," close=")">  
+			#{id}
+		</foreach>
+	</delete>
+	
+	<select id="findByMainId" resultMap="OperateprocessPo">
+	    SELECT <include refid="columns"/>
+	    FROM T_OPERATEPROCESS 
+	    WHERE PARSURID_=#{mainId}
+	</select>
+	
+	<select id="findIdsByMainId" parameterType="java.util.Map" resultMap="OperateprocessPo">
+		SELECT ID_ FROM T_OPERATEPROCESS
+	    WHERE
+	    PARSURID_=#{mainId}
+	</select>
+	
+</mapper>

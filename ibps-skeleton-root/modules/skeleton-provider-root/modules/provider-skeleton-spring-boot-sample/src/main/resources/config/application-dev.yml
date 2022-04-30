@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    include: dev-base
+server:
+  port: 5399
+  
